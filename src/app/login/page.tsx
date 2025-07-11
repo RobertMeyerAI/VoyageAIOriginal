@@ -119,7 +119,7 @@ export default function LoginPage() {
           <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">
             <Sparkles className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-bold">Welcome to TripSpark</CardTitle>
+          <CardTitle className="text-2xl font-bold">Welcome to VoyageAI</CardTitle>
           <CardDescription>Your personal AI travel assistant.</CardDescription>
         </CardHeader>
         <CardContent>

@@ -56,7 +56,7 @@ export default function TripHeader({ trip, isClient }: { trip: Trip, isClient: b
         </Link>
         <div className="flex items-center gap-3">
           <Sparkles className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold hidden sm:inline font-headline">TripSpark</span>
+          <span className="text-xl font-bold hidden sm:inline font-headline">VoyageAI</span>
         </div>
       </div>
 

@@ -303,7 +303,7 @@ export default function TripDetailsPage() {
                         </Link>
                         <div className="flex items-center gap-3">
                             <Sparkles className="h-7 w-7 text-primary" />
-                            <span className="text-xl font-bold font-headline">TripSpark</span>
+                            <span className="text-xl font-bold font-headline">VoyageAI</span>
                         </div>
                     </div>
                     <Link href="/settings" passHref>

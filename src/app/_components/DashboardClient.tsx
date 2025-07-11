@@ -240,7 +240,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
       <header className="flex items-center justify-between p-4 border-b border-border/50 sticky top-0 bg-background/80 backdrop-blur-sm z-20">
         <div className="flex items-center gap-3">
           <Sparkles className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold font-headline">TripSpark</span>
+          <span className="text-xl font-bold font-headline">VoyageAI</span>
         </div>
         <div className="flex items-center gap-2">
           <Link href="/settings" passHref>
@@ -373,7 +373,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
                             <div className="bg-primary/10 p-3 rounded-full">
                               <Briefcase className="h-8 w-8 text-primary" />
                             </div>
-                            <h3 className="text-xl font-semibold font-headline">Welcome to TripSpark</h3>
+                            <h3 className="text-xl font-semibold font-headline">Welcome to VoyageAI</h3>
                             <p className="text-muted-foreground max-w-md">
                               Your smart travel assistant is ready. Click the "Sync with AI" button to automatically scan the shared inbox for flights, hotels, and other reservations to build your first trip itinerary.
                             </p>

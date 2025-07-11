@@ -55,7 +55,7 @@ export default function SettingsHeader() {
         </Link>
         <div className="flex items-center gap-3">
           <Sparkles className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold font-headline">TripSpark Settings</span>
+          <span className="text-xl font-bold font-headline">VoyageAI Settings</span>
         </div>
       </div>
       <Button variant="default" onClick={onSync} disabled={isPending}>
