@@ -13,9 +13,9 @@ const placeholderTrip: Trip = {
   tripName: 'Weekend Getaway to Paris',
   tripSummary: 'A quick weekend trip to explore the beautiful city of Paris, visiting iconic landmarks and enjoying French cuisine.',
   startDate: '2024-08-16',
-  endDate: '2024-08-18',
+  endDate: '2024-08-19',
   primaryDestination: 'Paris, France',
-  planningProgress: 75,
+  planningProgress: 100,
   travelers: ['Test User'],
   alerts: [
     {
@@ -55,7 +55,7 @@ const placeholderTrip: Trip = {
       type: 'HOTEL',
       description: 'Hotel Le Grand, Paris',
       startDate: '2024-08-17T14:00:00Z',
-      endDate: '2024-08-18T11:00:00Z',
+      endDate: '2024-08-19T11:00:00Z',
       location: 'Paris, France',
       details: {
         confirmations: [{
@@ -66,6 +66,28 @@ const placeholderTrip: Trip = {
         phoneNumber: '+33 1 23 45 67 89'
       },
       emailId: 'placeholder-email-2',
+      isArchived: false,
+    },
+    {
+      id: 'placeholder-segment-3',
+      type: 'FLIGHT',
+      description: 'Return flight from CDG to JFK',
+      startDate: '2024-08-19T14:00:00Z',
+      endDate: '2024-08-19T23:00:00Z',
+      location: 'Paris, France',
+      status: 'On Time',
+      details: {
+        confirmations: [{
+          number: 'XYZ9876',
+          travelerName: 'Test User',
+        }],
+        provider: 'Delta Airlines',
+        from: 'CDG - Charles de Gaulle Airport',
+        to: 'JFK - John F. Kennedy International Airport',
+        flightNumber: 'DL263',
+        airlineCode: 'DL'
+      },
+      emailId: 'placeholder-email-3',
       isArchived: false,
     }
   ]
