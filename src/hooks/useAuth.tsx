@@ -22,6 +22,40 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        // --- Login bypass for testing ---
+        const mockUser = {
+            uid: 'test-user-uid',
+            email: 'test.user@example.com',
+            emailVerified: true,
+            displayName: 'Test User',
+            isAnonymous: false,
+            photoURL: '',
+            providerData: [],
+            metadata: {},
+            providerId: 'password',
+            tenantId: null,
+            delete: async () => {},
+            getIdToken: async () => 'test-token',
+            getIdTokenResult: async () => ({
+                token: 'test-token',
+                expirationTime: '',
+                authTime: '',
+                issuedAtTime: '',
+                signInProvider: null,
+                signInSecondFactor: null,
+                claims: {},
+            }),
+            reload: async () => {},
+            toJSON: () => ({}),
+        } as User;
+        
+        setUser(mockUser);
+        setLoading(false);
+        // --- End login bypass ---
+
+
+        /*
+        // Original auth logic. Uncomment to restore.
         if (!isFirebaseConfigValid || !auth) {
             setLoading(false);
             return;
@@ -33,6 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         });
 
         return () => unsubscribe();
+        */
     }, []);
 
     const value = {
