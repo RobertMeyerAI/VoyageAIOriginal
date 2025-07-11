@@ -104,19 +104,19 @@ export default function SettingsPage() {
 
     if (isLoading || authLoading) {
         return (
-            <div className="flex flex-col min-h-screen w-full bg-[#F4F2F9] text-black">
-                <header className="flex items-center justify-between p-4 border-b border-black/10 sticky top-0 bg-[#F4F2F9]/80 backdrop-blur-sm z-10">
+            <div className="flex flex-col min-h-screen w-full bg-background text-foreground">
+                <header className="flex items-center justify-between p-4 border-b border-border/50 sticky top-0 bg-background/80 backdrop-blur-sm z-10">
                     <div className="flex items-center gap-3">
-                        <Sparkles className="h-7 w-7 text-[#794BC4]" />
+                        <Sparkles className="h-7 w-7 text-primary" />
                         <span className="text-xl font-bold font-headline">Loading Settings...</span>
                     </div>
                 </header>
                 <main className="flex-1 p-4 md:p-8 max-w-4xl mx-auto w-full">
                     <div className="space-y-8">
-                        <Skeleton className="h-48 w-full bg-black/10" />
-                        <Skeleton className="h-48 w-full bg-black/10" />
-                        <Skeleton className="h-32 w-full bg-black/10" />
-                        <Skeleton className="h-40 w-full bg-black/10" />
+                        <Skeleton className="h-48 w-full bg-muted" />
+                        <Skeleton className="h-48 w-full bg-muted" />
+                        <Skeleton className="h-32 w-full bg-muted" />
+                        <Skeleton className="h-40 w-full bg-muted" />
                     </div>
                 </main>
             </div>
@@ -124,7 +124,7 @@ export default function SettingsPage() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen w-full bg-[#F4F2F9] text-black font-body">
+        <div className="flex flex-col min-h-screen w-full bg-background text-foreground font-body">
             <SettingsHeader />
 
             <main className="flex-1 p-4 md:p-8">
@@ -133,7 +133,7 @@ export default function SettingsPage() {
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                             
-                            <Card className="bg-white">
+                            <Card className="bg-card">
                                 <CardHeader>
                                     <CardTitle className="font-headline">Alerts</CardTitle>
                                     <CardDescription>Customize when and how you receive alerts.</CardDescription>
@@ -186,7 +186,7 @@ export default function SettingsPage() {
                                 </CardContent>
                             </Card>
 
-                            <Card className="bg-white">
+                            <Card className="bg-card">
                                 <CardHeader>
                                     <CardTitle className="font-headline">Appearance</CardTitle>
                                     <CardDescription>Customize the look and feel of the app.</CardDescription>
@@ -216,7 +216,7 @@ export default function SettingsPage() {
                                 </CardContent>
                             </Card>
 
-                             <Card className="bg-white">
+                             <Card className="bg-card">
                                 <CardHeader>
                                     <CardTitle className="font-headline">Data Management</CardTitle>
                                     <CardDescription>Control how your trip data is managed.</CardDescription>
@@ -247,7 +247,7 @@ export default function SettingsPage() {
                                 </CardContent>
                             </Card>
 
-                            <Card className="bg-white">
+                            <Card className="bg-card">
                                 <CardHeader>
                                     <CardTitle className="font-headline">AI Personalization</CardTitle>
                                     <CardDescription>Provide context to the AI to get more personalized recommendations.</CardDescription>
@@ -272,7 +272,7 @@ export default function SettingsPage() {
 
                             <div className="flex justify-end gap-4">
                                 <Button type="button" variant="outline" onClick={handleReset}>Reset to Defaults</Button>
-                                <Button type="submit" className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white">Save Settings</Button>
+                                <Button type="submit">Save Settings</Button>
                             </div>
                         </form>
                     </Form>

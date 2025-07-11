@@ -56,7 +56,7 @@ export default function Recommendations({ trip }: { trip: Trip }) {
   };
 
   return (
-    <Card className="bg-white shadow-lg border-border/50">
+    <Card className="bg-card shadow-lg border-border/50">
       <CardHeader>
         <CardTitle className="text-lg font-bold font-headline">AI Recommendations</CardTitle>
       </CardHeader>
@@ -64,7 +64,7 @@ export default function Recommendations({ trip }: { trip: Trip }) {
         {!recommendations && !isPending && (
           <div className="text-center text-sm text-muted-foreground flex flex-col items-center gap-4">
             <p>Discover hidden gems for your trip to {trip.primaryDestination}.</p>
-            <Button onClick={handleGetRecommendations} className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white">
+            <Button onClick={handleGetRecommendations}>
               <Wand2 className="mr-2 h-4 w-4" />
               Find things to do
             </Button>
@@ -76,17 +76,17 @@ export default function Recommendations({ trip }: { trip: Trip }) {
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Asking the AI for ideas...
             </div>
-            <Skeleton className="h-20 w-full bg-black/10" />
-            <Skeleton className="h-20 w-full bg-black/10" />
+            <Skeleton className="h-20 w-full bg-muted" />
+            <Skeleton className="h-20 w-full bg-muted" />
           </div>
         )}
         {recommendations && recommendations.recommendations.length > 0 && (
           <div className="space-y-3">
             {recommendations.recommendations.map((item, index) => (
-              <div key={index} className="p-3 rounded-lg border border-border/50 bg-secondary/10">
+              <div key={index} className="p-3 rounded-lg border border-border/50 bg-secondary/30">
                 <div className="flex justify-between items-start gap-3">
                   <div className="flex items-start gap-3">
-                    <div className="text-[#794BC4] mt-1">{POI_ICONS[item.type] || POI_ICONS.default}</div>
+                    <div className="text-primary mt-1">{POI_ICONS[item.type] || POI_ICONS.default}</div>
                     <div className="flex-1">
                       <p className="font-semibold text-sm">{item.name}</p>
                       <p className="text-xs text-muted-foreground">{item.description}</p>

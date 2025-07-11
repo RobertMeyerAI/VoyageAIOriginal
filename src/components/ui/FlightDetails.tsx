@@ -81,7 +81,7 @@ export default function FlightDetails({
 
     return (
         <AccordionItem value={value} className="border-none">
-            <Card className="bg-white shadow-lg border-border/50 overflow-hidden transition-all duration-300 border-l-4" style={{borderLeftColor: settings.appearance.colors.flight}}>
+            <Card className="bg-card shadow-lg border-border/50 overflow-hidden transition-all duration-300 border-l-4" style={{borderLeftColor: settings.appearance.colors.flight}}>
                 <AccordionTrigger className="p-4 hover:no-underline focus:ring-1 focus:ring-primary/50 rounded-lg group">
                     <div className="flex items-center justify-between w-full">
                         <div className="flex items-center gap-4 text-left min-w-0">
@@ -114,7 +114,7 @@ export default function FlightDetails({
                     <div className="border-t border-border/50 mt-2 pt-4 space-y-4 text-sm">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                             <div className="flex items-start gap-3">
-                                <PlaneTakeoff className="h-4 w-4 mt-0.5 text-[#794BC4]" />
+                                <PlaneTakeoff className="h-4 w-4 mt-0.5 text-primary" />
                                 <div>
                                     <span className="font-semibold">Departure</span>
                                     <p className="text-muted-foreground" style={isDelayed ? { color: delayColor, fontWeight: 600 } : {}}>
@@ -123,7 +123,7 @@ export default function FlightDetails({
                                 </div>
                             </div>
                             <div className="flex items-start gap-3">
-                                <PlaneLanding className="h-4 w-4 mt-0.5 text-[#794BC4]" />
+                                <PlaneLanding className="h-4 w-4 mt-0.5 text-primary" />
                                 <div>
                                     <span className="font-semibold">Arrival</span>
                                     <p className="text-muted-foreground" style={isDelayed ? { color: delayColor, fontWeight: 600 } : {}}>
@@ -134,7 +134,7 @@ export default function FlightDetails({
                             {segment.details.confirmations?.map((conf, idx) => (
                                 <div key={idx} className="col-span-1">
                                     <div className="flex items-start gap-3 mb-2">
-                                        <Hash className="h-4 w-4 mt-0.5 text-[#794BC4]" />
+                                        <Hash className="h-4 w-4 mt-0.5 text-primary" />
                                         <div>
                                             <span className="font-semibold">Confirmation #</span>
                                             {conf.travelerName && <p className="text-muted-foreground text-xs">({conf.travelerName})</p>}
@@ -154,7 +154,7 @@ export default function FlightDetails({
                                     )}
                                 </div>
                             ))}
-                            {flightIdent && <div className="flex items-start gap-3"><Plane className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Flight</span><p className="text-muted-foreground">{flightIdent}</p></div></div>}
+                            {flightIdent && <div className="flex items-start gap-3"><Plane className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Flight</span><p className="text-muted-foreground">{flightIdent}</p></div></div>}
                         </div>
                         <div className="flex items-center gap-2">
                             {flightIdent && (

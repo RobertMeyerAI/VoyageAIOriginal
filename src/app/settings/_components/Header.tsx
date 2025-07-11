@@ -46,7 +46,7 @@ export default function SettingsHeader() {
   };
 
   return (
-    <header className="flex items-center justify-between p-4 border-b border-black/10 sticky top-0 bg-[#F4F2F9]/80 backdrop-blur-sm z-10 text-black">
+    <header className="flex items-center justify-between p-4 border-b border-border/50 sticky top-0 bg-background/80 backdrop-blur-sm z-10">
       <div className="flex items-center gap-4">
         <Link href="/" passHref>
           <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -54,11 +54,11 @@ export default function SettingsHeader() {
           </Button>
         </Link>
         <div className="flex items-center gap-3">
-          <Sparkles className="h-7 w-7 text-[#794BC4]" />
+          <Sparkles className="h-7 w-7 text-primary" />
           <span className="text-xl font-bold font-headline">TripSpark Settings</span>
         </div>
       </div>
-      <Button variant="default" onClick={onSync} disabled={isPending} className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white">
+      <Button variant="default" onClick={onSync} disabled={isPending}>
         <RefreshCw className={`mr-2 h-4 w-4 ${isPending ? 'animate-spin' : ''}`} />
         Sync with AI
       </Button>

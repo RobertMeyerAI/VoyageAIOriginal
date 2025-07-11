@@ -68,21 +68,21 @@ export default function ArchivedItemsManager() {
     const fullTripsArchived = archivedTrips.filter(t => t.isArchived);
 
     return (
-        <Card className="bg-white">
+        <Card className="bg-card">
             <CardHeader>
                 <CardTitle className="font-headline">Restore Archived Items</CardTitle>
                 <CardDescription>Restore accidentally deleted trips or segments.</CardDescription>
             </CardHeader>
             <CardContent>
-                {isLoading ? <Skeleton className="h-24 w-full bg-black/10" /> : (
+                {isLoading ? <Skeleton className="h-24 w-full bg-muted" /> : (
                     (fullTripsArchived.length === 0 && Object.keys(archivedSegmentsByTrip).length === 0) ? (
                         <p className="text-muted-foreground text-sm text-center py-4">No archived items found.</p>
                     ) : (
                         <Accordion type="multiple" className="space-y-4">
                             {fullTripsArchived.map(trip => (
-                                <div key={trip.id} className="flex items-center justify-between p-3 bg-secondary/10 rounded-md">
+                                <div key={trip.id} className="flex items-center justify-between p-3 bg-secondary/30 rounded-md">
                                     <div className="flex items-center gap-3">
-                                        <Briefcase className="h-5 w-5 text-[#794BC4]" />
+                                        <Briefcase className="h-5 w-5 text-primary" />
                                         <div>
                                             <p className="font-semibold">{trip.tripName}</p>
                                             <p className="text-xs text-muted-foreground">Archived Trip</p>
@@ -98,7 +98,7 @@ export default function ArchivedItemsManager() {
                                 <AccordionItem key={tripId} value={tripId}>
                                     <AccordionTrigger>
                                         <div className="flex items-center gap-3">
-                                            <Briefcase className="h-5 w-5 text-[#794BC4]" />
+                                            <Briefcase className="h-5 w-5 text-primary" />
                                             <div>
                                                 <p className="font-semibold">{tripName}</p>
                                                 <p className="text-xs text-muted-foreground text-left">{segments.length} archived segment(s)</p>
@@ -107,7 +107,7 @@ export default function ArchivedItemsManager() {
                                     </AccordionTrigger>
                                     <AccordionContent className="space-y-2 pt-2">
                                         {segments.map(segment => (
-                                            <div key={segment.id} className="flex items-center justify-between p-3 bg-secondary/10 rounded-md ml-8">
+                                            <div key={segment.id} className="flex items-center justify-between p-3 bg-secondary/30 rounded-md ml-8">
                                                 <div className="flex items-center gap-3">
                                                     <Plane className="h-5 w-5 text-secondary-foreground" />
                                                     <div>

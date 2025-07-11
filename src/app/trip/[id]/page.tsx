@@ -60,13 +60,13 @@ const calculateGap = (start: string, end: string) => {
 }
 
 const transportIcons: Record<TransportationOption['type'], React.ReactNode> = {
-    WALK: <Footprints className="h-6 w-6 text-[#794BC4]" />,
-    SUBWAY: <TramFront className="h-6 w-6 text-[#794BC4]" />,
-    BUS: <Bus className="h-6 w-6 text-[#794BC4]" />,
-    TRAIN: <TrainTrack className="h-6 w-6 text-[#794BC4]" />,
-    RIDESHARE: <Car className="h-6 w-6 text-[#794BC4]" />,
-    TAXI: <Car className="h-6 w-6 text-[#794BC4]" />,
-    FERRY: <Ship className="h-6 w-6 text-[#794BC4]" />,
+    WALK: <Footprints className="h-6 w-6 text-primary" />,
+    SUBWAY: <TramFront className="h-6 w-6 text-primary" />,
+    BUS: <Bus className="h-6 w-6 text-primary" />,
+    TRAIN: <TrainTrack className="h-6 w-6 text-primary" />,
+    RIDESHARE: <Car className="h-6 w-6 text-primary" />,
+    TAXI: <Car className="h-6 w-6 text-primary" />,
+    FERRY: <Ship className="h-6 w-6 text-primary" />,
 };
 
 export default function TripDetailsPage() {
@@ -285,7 +285,7 @@ export default function TripDetailsPage() {
 
     if (loading) {
         return (
-            <div className="flex items-center justify-center min-h-screen bg-[#F4F2F9] text-black">
+            <div className="flex items-center justify-center min-h-screen bg-background text-foreground">
                 <Loader2 className="h-8 w-8 animate-spin" />
             </div>
         );
@@ -293,8 +293,8 @@ export default function TripDetailsPage() {
     
     if (!trip) {
         return (
-            <div className="flex flex-col min-h-screen w-full bg-[#F4F2F9] text-black">
-                 <header className="flex items-center justify-between p-4 border-b sticky top-0 bg-[#F4F2F9] z-10">
+            <div className="flex flex-col min-h-screen w-full bg-background text-foreground">
+                 <header className="flex items-center justify-between p-4 border-b sticky top-0 bg-background z-10">
                     <div className="flex items-center gap-4">
                         <Link href="/" passHref>
                             <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -302,7 +302,7 @@ export default function TripDetailsPage() {
                             </Button>
                         </Link>
                         <div className="flex items-center gap-3">
-                            <Sparkles className="h-7 w-7 text-[#794BC4]" />
+                            <Sparkles className="h-7 w-7 text-primary" />
                             <span className="text-xl font-bold font-headline">TripSpark</span>
                         </div>
                     </div>
@@ -317,7 +317,7 @@ export default function TripDetailsPage() {
                     <h1 className="text-2xl font-bold font-headline">Trip not found</h1>
                     <p className="text-muted-foreground mt-2">Could not find the details for this trip. It might have been removed.</p>
                     <Link href="/" passHref>
-                        <Button variant="link" className="mt-4 text-[#794BC4]">Go back to all trips</Button>
+                        <Button variant="link" className="mt-4 text-primary">Go back to all trips</Button>
                     </Link>
                 </main>
             </div>
@@ -325,7 +325,7 @@ export default function TripDetailsPage() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen w-full bg-[#F4F2F9] text-black font-body">
+        <div className="flex flex-col min-h-screen w-full bg-background text-foreground font-body">
             <TripHeader trip={trip} isClient={isClient} />
 
             <main className="flex-1 p-4 md:p-8">
@@ -374,7 +374,7 @@ export default function TripDetailsPage() {
                                                     />
                                                 ) : (
                                                     <AccordionItem value={accordionValue} className="border-none">
-                                                        <Card className="bg-white shadow-lg border-border/50 overflow-hidden transition-all duration-300 border-l-4" style={{ borderLeftColor: segmentStyle.color }}>
+                                                        <Card className="bg-card shadow-lg border-border/50 overflow-hidden transition-all duration-300 border-l-4" style={{ borderLeftColor: segmentStyle.color }}>
                                                             <AccordionTrigger className="p-4 hover:no-underline focus:ring-1 focus:ring-primary/50 rounded-lg group">
                                                                 <div className="flex items-center justify-between w-full">
                                                                     <div className="flex items-center gap-4">
@@ -404,17 +404,17 @@ export default function TripDetailsPage() {
                                                                 <div className="border-t border-border/50 mt-2 pt-4 space-y-4 text-sm">
                                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                                                                         {segment.type === 'HOTEL' && <>
-                                                                            <div className="flex items-start gap-3"><CalendarDays className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Check-in</span><p className="text-muted-foreground">{formatDateTime(segment.startDate)}</p></div></div>
-                                                                            <div className="flex items-start gap-3"><CalendarDays className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Check-out</span><p className="text-muted-foreground">{formatDateTime(segment.endDate)}</p></div></div>
+                                                                            <div className="flex items-start gap-3"><CalendarDays className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Check-in</span><p className="text-muted-foreground">{formatDateTime(segment.startDate)}</p></div></div>
+                                                                            <div className="flex items-start gap-3"><CalendarDays className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Check-out</span><p className="text-muted-foreground">{formatDateTime(segment.endDate)}</p></div></div>
                                                                         </>}
                                                                         {segment.type === 'CAR' && <>
-                                                                            <div className="flex items-start gap-3"><Clock className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Pickup</span><p className="text-muted-foreground">{formatDateTime(segment.startDate)}</p></div></div>
-                                                                            <div className="flex items-start gap-3"><Clock className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Drop-off</span><p className="text-muted-foreground">{formatDateTime(segment.endDate)}</p></div></div>
+                                                                            <div className="flex items-start gap-3"><Clock className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Pickup</span><p className="text-muted-foreground">{formatDateTime(segment.startDate)}</p></div></div>
+                                                                            <div className="flex items-start gap-3"><Clock className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Drop-off</span><p className="text-muted-foreground">{formatDateTime(segment.endDate)}</p></div></div>
                                                                         </>}
                                                                         {segment.details.confirmations && segment.details.confirmations.length > 0 ? (
                                                                             segment.details.confirmations.map((conf, idx) => (
                                                                                 <div key={idx} className="flex items-start gap-3">
-                                                                                    <Hash className="h-4 w-4 mt-0.5 text-[#794BC4]" />
+                                                                                    <Hash className="h-4 w-4 mt-0.5 text-primary" />
                                                                                     <div>
                                                                                         <span className="font-semibold">Confirmation #</span>
                                                                                         {conf.travelerName && <span className="text-muted-foreground text-xs"> ({conf.travelerName})</span>}
@@ -423,13 +423,13 @@ export default function TripDetailsPage() {
                                                                                 </div>
                                                                             ))
                                                                         ) : (
-                                                                            <div className="flex items-start gap-3"><Hash className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Confirmation #</span><p className="text-muted-foreground">N/A</p></div></div>
+                                                                            <div className="flex items-start gap-3"><Hash className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Confirmation #</span><p className="text-muted-foreground">N/A</p></div></div>
                                                                         )}
                                                                         {segment.details.bookingAgent && (
-                                                                            <div className="flex items-start gap-3"><Briefcase className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Booked via</span><p className="text-muted-foreground">{segment.details.bookingAgent}</p></div></div>
+                                                                            <div className="flex items-start gap-3"><Briefcase className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Booked via</span><p className="text-muted-foreground">{segment.details.bookingAgent}</p></div></div>
                                                                         )}
                                                                         {segment.details.phoneNumber && (
-                                                                            <div className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-[#794BC4]" /><div><span className="font-semibold">Phone</span><p className="text-muted-foreground">{segment.details.phoneNumber}</p></div></div>
+                                                                            <div className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary" /><div><span className="font-semibold">Phone</span><p className="text-muted-foreground">{segment.details.phoneNumber}</p></div></div>
                                                                         )}
                                                                     </div>
                                                                     <div className="flex items-center gap-2">
@@ -489,15 +489,15 @@ export default function TripDetailsPage() {
 
                             ) : (
                                 <div className="space-y-4">
-                                    <Skeleton className="h-28 w-full bg-black/10" />
-                                    <Skeleton className="h-28 w-full bg-black/10" />
-                                    <Skeleton className="h-28 w-full bg-black/10" />
+                                    <Skeleton className="h-28 w-full bg-muted" />
+                                    <Skeleton className="h-28 w-full bg-muted" />
+                                    <Skeleton className="h-28 w-full bg-muted" />
                                 </div>
                             )}
                         </div>
 
                         <aside className="lg:col-span-1 space-y-8 sticky top-24 self-start">
-                            <Card className="bg-white shadow-lg border-border/50">
+                            <Card className="bg-card shadow-lg border-border/50">
                                 <CardHeader>
                                     <CardTitle className="text-lg font-bold font-headline">Trip Details</CardTitle>
                                 </CardHeader>
@@ -505,31 +505,31 @@ export default function TripDetailsPage() {
                                     {isClient ? (
                                         <div className="space-y-3">
                                             <div className="flex items-center gap-3">
-                                                <MapPin className="h-4 w-4 text-[#794BC4]" />
+                                                <MapPin className="h-4 w-4 text-primary" />
                                                 <span>You are currently in <span className="font-semibold">{lastCompletedSegment?.location || trip.primaryDestination}</span>.</span>
                                             </div>
                                             {upcomingSegment ? (
                                                 <div className="flex items-center gap-3">
-                                                    <Clock className="h-4 w-4 text-[#794BC4]" />
+                                                    <Clock className="h-4 w-4 text-primary" />
                                                     <span>Next up: {upcomingSegment.details.provider} in <span className="font-semibold">{formatDistanceToNow(new Date(upcomingSegment.startDate))}</span>.</span>
                                                 </div>
                                             ) : (
                                                 <div className="flex items-center gap-3">
-                                                    <Clock className="h-4 w-4 text-[#794BC4]" />
+                                                    <Clock className="h-4 w-4 text-primary" />
                                                     <span>No upcoming plans for this trip.</span>
                                                 </div>
                                             )}
                                         </div>
                                     ) : (
                                         <div className="space-y-3">
-                                            <Skeleton className="h-5 w-3/4 bg-black/10" />
-                                            <Skeleton className="h-5 w-full bg-black/10" />
+                                            <Skeleton className="h-5 w-3/4 bg-muted" />
+                                            <Skeleton className="h-5 w-full bg-muted" />
                                         </div>
                                     )}
                                 </CardContent>
                             </Card>
                             
-                             <Card className="bg-white shadow-lg border-border/50">
+                             <Card className="bg-card shadow-lg border-border/50">
                                 <CardHeader>
                                     <CardTitle className="text-lg font-bold font-headline">Trip Alerts</CardTitle>
                                 </CardHeader>
@@ -573,7 +573,7 @@ export default function TripDetailsPage() {
             </main>
             
             <Dialog open={!!boardingPass} onOpenChange={(isOpen) => !isOpen && setBoardingPass(null)}>
-                <DialogContent className="max-w-md p-4 bg-white text-black">
+                <DialogContent className="max-w-md p-4 bg-card text-foreground">
                     <DialogHeader>
                         <DialogTitle>Boarding Pass</DialogTitle>
                         <DialogDescription>
@@ -596,7 +596,7 @@ export default function TripDetailsPage() {
             </Dialog>
             
             <Dialog open={!!transportationData.endpoints} onOpenChange={(isOpen) => !isOpen && setTransportationData({ isLoading: false, options: null, endpoints: null })}>
-                <DialogContent className="max-w-2xl bg-white text-black">
+                <DialogContent className="max-w-2xl bg-card text-foreground">
                     <DialogHeader>
                         <DialogTitle className="font-headline">Onward Transportation Options</DialogTitle>
                         {transportationData.endpoints && (
@@ -609,13 +609,13 @@ export default function TripDetailsPage() {
                     <div className="py-4 space-y-4 max-h-[60vh] overflow-y-auto pr-2">
                         {transportationData.isLoading && (
                             <div className="space-y-4">
-                                <Skeleton className="h-24 w-full bg-black/10" />
-                                <Skeleton className="h-24 w-full bg-black/10" />
-                                <Skeleton className="h-24 w-full bg-black/10" />
+                                <Skeleton className="h-24 w-full bg-muted" />
+                                <Skeleton className="h-24 w-full bg-muted" />
+                                <Skeleton className="h-24 w-full bg-muted" />
                             </div>
                         )}
                         {!transportationData.isLoading && transportationData.options && transportationData.options.length > 0 && transportationData.options.map((opt, i) => (
-                            <Card key={i} className="bg-secondary/10 border-border/70">
+                            <Card key={i} className="bg-secondary/30 border-border/70">
                                 <CardContent className="p-4 flex items-start gap-4">
                                     <div className="pt-1">{transportIcons[opt.type]}</div>
                                     <div className="flex-grow">

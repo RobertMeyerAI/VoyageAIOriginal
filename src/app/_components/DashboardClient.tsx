@@ -236,23 +236,23 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
   }
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-[#F4F2F9] text-foreground font-body">
-      <header className="flex items-center justify-between p-4 border-b border-border/50 sticky top-0 bg-[#F4F2F9]/80 backdrop-blur-sm z-20">
+    <div className="flex flex-col min-h-screen w-full bg-background text-foreground font-body">
+      <header className="flex items-center justify-between p-4 border-b border-border/50 sticky top-0 bg-background/80 backdrop-blur-sm z-20">
         <div className="flex items-center gap-3">
-          <Sparkles className="h-7 w-7 text-[#794BC4]" />
-          <span className="text-xl font-bold font-headline text-black">TripSpark</span>
+          <Sparkles className="h-7 w-7 text-primary" />
+          <span className="text-xl font-bold font-headline">TripSpark</span>
         </div>
         <div className="flex items-center gap-2">
           <Link href="/settings" passHref>
-            <Button variant="ghost" size="icon" className='text-black'>
+            <Button variant="ghost" size="icon">
               <Cog className="h-6 w-6" />
             </Button>
           </Link>
-          <Button variant="ghost" size="icon" type="button" onClick={handleLogout} className='text-black'>
+          <Button variant="ghost" size="icon" type="button" onClick={handleLogout}>
             <LogOut className="h-6 w-6" />
           </Button>
           <form action={formAction}>
-            <Button type="submit" variant="default" disabled={isPending} className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white">
+            <Button type="submit" variant="default" disabled={isPending}>
               <RefreshCw className={`h-4 w-4 mr-2 ${isPending ? 'animate-spin' : ''}`} />
               Sync with AI
             </Button>
@@ -260,7 +260,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
         </div>
       </header>
 
-      <div className="flex-1 flex flex-col overflow-hidden text-black">
+      <div className="flex-1 flex flex-col overflow-hidden">
         <main className="flex-1 overflow-y-auto p-4 md:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
@@ -295,7 +295,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
                                   >
                                     <Card
                                       onDoubleClick={() => router.push(`/trip/${trip.id}`)}
-                                      className="bg-white shadow-lg border-border/50 rounded-xl overflow-hidden cursor-pointer border-l-4"
+                                      className="bg-card shadow-lg border-border/50 rounded-xl overflow-hidden cursor-pointer border-l-4"
                                       style={{ borderLeftColor: getTripColor(trip.id) }}
                                     >
                                       <AccordionTrigger className="p-4 hover:no-underline w-full">
@@ -306,7 +306,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
                                             </div>
                                             {trip.icon && (
                                               <div 
-                                                className="h-6 w-6 text-[#794BC4]" 
+                                                className="h-6 w-6 text-primary" 
                                                 dangerouslySetInnerHTML={{ __html: trip.icon }} 
                                               />
                                             )}
@@ -353,7 +353,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
                                             <StatItem icon={<Users className="h-5 w-5" />} label="Travelers" value={trip.travelers?.length || 1} />
                                           </div>
                                           <Link href={`/trip/${trip.id}`} passHref>
-                                            <Button className="w-full bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white">
+                                            <Button className="w-full">
                                               <Plane className="mr-2 h-4 w-4" />
                                               View Full Itinerary
                                             </Button>
@@ -368,10 +368,10 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
                           ))}
                         </Accordion>
                       ) : (
-                        <Card className="text-center bg-white/50 border-dashed">
+                        <Card className="text-center bg-card/50 border-dashed">
                           <CardContent className="flex flex-col items-center justify-center gap-4 py-16">
-                            <div className="bg-[#794BC4]/10 p-3 rounded-full">
-                              <Briefcase className="h-8 w-8 text-[#794BC4]" />
+                            <div className="bg-primary/10 p-3 rounded-full">
+                              <Briefcase className="h-8 w-8 text-primary" />
                             </div>
                             <h3 className="text-xl font-semibold font-headline">Welcome to TripSpark</h3>
                             <p className="text-muted-foreground max-w-md">
@@ -388,24 +388,24 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
             </div>
 
             <aside className="lg:col-span-1 space-y-8">
-              <Card className="bg-white shadow-lg border-border/50 rounded-xl">
+              <Card className="bg-card shadow-lg border-border/50 rounded-xl">
                 <CardHeader>
                   <CardTitle className="text-lg font-bold font-headline">Current Status</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 text-sm">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <MapPin className="h-4 w-4 text-[#794BC4]" />
+                      <MapPin className="h-4 w-4 text-primary" />
                       <span>You are in <span className="font-semibold">{currentLocation}</span></span>
                     </div>
                     {nextSegment ? (
                       <div className="flex items-center gap-3">
-                        <Clock className="h-4 w-4 text-[#794BC4]" />
+                        <Clock className="h-4 w-4 text-primary" />
                         <span>Next: <span className="font-semibold">{nextSegment.details.provider || nextSegment.description}</span>.</span>
                       </div>
                     ) : (
                       <div className="flex items-center gap-3">
-                        <Clock className="h-4 w-4 text-[#794BC4]" />
+                        <Clock className="h-4 w-4 text-primary" />
                         <span>No upcoming travel plans found.</span>
                       </div>
                     )}
@@ -413,7 +413,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
                 </CardContent>
               </Card>
 
-              <Card className="bg-white shadow-lg border-border/50 rounded-xl">
+              <Card className="bg-card shadow-lg border-border/50 rounded-xl">
                 <CardHeader>
                   <CardTitle className="text-lg font-bold font-headline">Dashboard Alerts</CardTitle>
                 </CardHeader>
@@ -459,10 +459,10 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
         </main>
       </div>
 
-      <footer className="w-full z-10 bg-white">
+      <footer className="w-full z-10 bg-card">
         <Collapsible open={isLogOpen} onOpenChange={setIsLogOpen} className="w-full">
           <CollapsibleContent>
-            <div className="bg-gray-900/95 backdrop-blur-sm p-4 h-48 overflow-y-auto font-mono text-xs text-gray-400 border-t border-[#794BC4]/50">
+            <div className="bg-gray-900/95 backdrop-blur-sm p-4 h-48 overflow-y-auto font-mono text-xs text-gray-400 border-t border-primary/50">
               {systemLogs.map((log, index) => (
                 <p key={index} className={cn('whitespace-pre-wrap', log.includes('ERROR') || log.includes('FATAL') ? 'text-red-400' : '')}>
                   {log}
@@ -472,7 +472,7 @@ export default function DashboardClient({ initialTrips }: { initialTrips: Trip[]
             </div>
           </CollapsibleContent>
           <CollapsibleTrigger asChild>
-            <div className="bg-white text-black font-semibold flex items-center justify-between w-full h-10 px-4 cursor-pointer border-t border-border/50">
+            <div className="bg-card text-foreground font-semibold flex items-center justify-between w-full h-10 px-4 cursor-pointer border-t border-border/50">
               <p className="text-sm font-headline">{'>'} System Log</p>
               {isLogOpen ? <ChevronsDown className="h-5 w-5" /> : <ChevronsUp className="h-5 w-5" />}
             </div>

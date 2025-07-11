@@ -47,7 +47,7 @@ export default function TripHeader({ trip, isClient }: { trip: Trip, isClient: b
   };
 
   return (
-    <header className="flex items-center justify-between p-4 border-b border-black/10 sticky top-0 bg-[#F4F2F9]/80 backdrop-blur-sm z-10 gap-4 text-black">
+    <header className="flex items-center justify-between p-4 border-b border-border/50 sticky top-0 bg-background/80 backdrop-blur-sm z-10 gap-4">
       <div className="flex items-center gap-4">
         <Link href="/" passHref>
           <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -55,7 +55,7 @@ export default function TripHeader({ trip, isClient }: { trip: Trip, isClient: b
           </Button>
         </Link>
         <div className="flex items-center gap-3">
-          <Sparkles className="h-7 w-7 text-[#794BC4]" />
+          <Sparkles className="h-7 w-7 text-primary" />
           <span className="text-xl font-bold hidden sm:inline font-headline">TripSpark</span>
         </div>
       </div>
@@ -72,8 +72,8 @@ export default function TripHeader({ trip, isClient }: { trip: Trip, isClient: b
             </div>
           ) : (
             <div className="space-y-1">
-              <Skeleton className="h-3 w-24 bg-black/10" />
-              <Skeleton className="h-2 w-full bg-black/10" />
+              <Skeleton className="h-3 w-24 bg-muted" />
+              <Skeleton className="h-2 w-full bg-muted" />
             </div>
           )}
         </div>
@@ -85,7 +85,7 @@ export default function TripHeader({ trip, isClient }: { trip: Trip, isClient: b
             <Cog className="h-6 w-6" />
           </Button>
         </Link>
-        <Button variant="default" onClick={onSync} disabled={isPending} className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white">
+        <Button variant="default" onClick={onSync} disabled={isPending}>
           <RefreshCw className={`h-4 w-4 ${isPending ? 'animate-spin' : ''}`} />
           <span className="sr-only sm:not-sr-only sm:ml-2">Sync</span>
         </Button>
