@@ -8,3 +8,6 @@ runConfig:
 VpcAccess:
   service: trip-insights-w6cog-vpc-connector
   egress: ALL_TRAFFIC
+emulators:
+  firestore:
+    enabled: true
