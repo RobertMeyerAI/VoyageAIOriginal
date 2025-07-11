@@ -5,3 +5,6 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+VpcAccess:
+  service: trip-insights-w6cog-vpc-connector
+  egress: ALL_TRAFFIC
